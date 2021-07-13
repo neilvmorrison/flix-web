@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { createUseStyles } from 'react-jss';
+import Header from './components/Header';
+import Router from './components/Router';
+
+const useStyles = createUseStyles((theme) => ({
+  '@global': {
+    body: {
+      margin: 0,
+      background: 'rgb(240, 240, 240)',
+    },
+    html: {
+      fontFamily: 'Avenir',
+      fontSize: 16,
+      color: 'rgba(0, 0, 0, 0.8)',
+    },
+    h1: {
+      margin: 0,
+    },
+    h2: {
+      margin: 0,
+      color: 'rgba(0, 0, 0, 0.5)',
+      fontSize: '1.1rem',
+      fontWeight: 300,
+      textTransform: 'uppercase',
+    },
+  },
+}));
 
 function App() {
+  useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Header />
+      <Router />
     </div>
   );
 }

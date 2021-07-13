@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { ThemeProvider } from 'react-jss';
+import { BrowserRouter } from 'react-router-dom';
+import axios from 'axios';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import theme from './theme';
+
+axios.defaults.baseURL = 'http://localhost:4000';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
